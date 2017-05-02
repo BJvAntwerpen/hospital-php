@@ -1,19 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<title>Hospital</title>
-	<link rel="stylesheet" href="style.css" type="text/css">
-</head>
-<body>
-	<h1>Hospital</h1>
-	<ul>
-		<li><a href="patients.html">Patiënts</a></li>
-		<li><a href="clients.html">Clients</a></li>
-		<li><a href="species.html">Species</a></li>
-	</ul>
-
-	<h2>Patiënts</h2>
+	<h2>Cliënts</h2>
 	<table>
 		<thead>
 			<tr>
@@ -25,14 +10,16 @@
 			</tr>
 		</thead>
 		</tbody>
+		<?php foreach($clients as $client) { ?>
 			<tr>
-				<td>John</td>
-				<td>Doe</td>
+				<td><?= $client['client_firstname']?></td>
+				<td><?= $client['client_lastname']?></td>
 				<td>0612345678</td>
 				<td>johndoe@hismail.com</td>
 				<td class="center"><a href="#">edit</a></td>
 				<td class="center"><a href="#">delete</a></td>
 			</tr>
+		<?php } ?>
 			<tr>
 				<td>Jane</td>
 				<td>Doe</td>
@@ -43,7 +30,4 @@
 			</tr>
 		</tbody>
 	</table>
-		<p><a href="#">Create</a></p>
-		<p><a href="index.html">Home</a></p>
-	</body>
-</html>
+		<p><a href="<?= URL ?>clients/add">Add client</a></p>
