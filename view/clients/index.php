@@ -14,20 +14,12 @@
 			<tr>
 				<td><?= $client['client_firstname']?></td>
 				<td><?= $client['client_lastname']?></td>
-				<td>0612345678</td>
-				<td>johndoe@hismail.com</td>
-				<td class="center"><a href="#">edit</a></td>
-				<td class="center"><a href="#">delete</a></td>
+				<td><?= $client['client_phone']?></td>
+				<td><?= $client['client_email']?></td>
+				<td class="center"><a href="<?php echo URL . 'clients/edit/' . $client['client_id']; ?>">edit</a></td>
+				<td class="center"><a href="<?php echo URL . 'clients/delete/' . $client['client_id']; ?>">delete</a></td>
 			</tr>
 		<?php } ?>
-			<tr>
-				<td>Jane</td>
-				<td>Doe</td>
-				<td>0687654321</td>
-				<td>janedoe@hermail.com</td>
-				<td class="center"><a href="#">edit</a></td>
-				<td class="center"><a href="#">delete</a></td>
-			</tr>
 		</tbody>
 	</table>
 		<p><a href="<?= URL ?>clients/add">Add client</a></p>
