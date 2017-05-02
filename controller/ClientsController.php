@@ -19,3 +19,25 @@ function addSave() {
 	}
 	header('Location:' . URL . 'clients/index');
 }
+
+function delete($id) {
+	if (!deleteClient($id)) {
+		header('Location:' . URL . 'error/index');
+		exit();
+	}
+	header('Location:' . URL . 'clients/index');
+}
+
+function edit($id) {
+	render('clients/edit', array(
+		'client' => getclient($id)
+		));
+}
+
+function editSave() {
+	if (!editClient()) {
+		header('Location:' . URL . 'error/index');
+		exit();
+	}
+	header('Location:' . URL . 'clients/index');
+}
