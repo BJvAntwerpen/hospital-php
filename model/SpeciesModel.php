@@ -25,3 +25,35 @@ function addSpecie() {
 
 	return true;
 }
+
+function deleteSpecie($id) {
+	if (!$id) {
+		return false;
+	}
+	$db = openDatabaseConnection();
+	$sql = "DELETE FROM species WHERE species_id = :id";
+	$query = $db->prepare($sql);
+	$query->execute(array(
+		':id' => $id));
+	$db = null;
+	return true;
+}
+
+function getSpecie($id) {
+	$db = openDatabaseConnection();
+	$sql = "SELECT * FROM species WHERE species_id = :id";
+	$query = $db->prepare($sql);
+	$query->execute(array(
+		':id' => $id));
+	$db = null;
+	return $query->fetch();
+}
+
+function editSpecie() {
+	$specieDesc = isset($_POST['species']) ? $_POST['species'] : null;
+	$id = isset($_POST['id']) ? $_POST['id'] : null;
+
+	if (strlen($specieDesc) == 0) {
+		return false;
+	}
+}
