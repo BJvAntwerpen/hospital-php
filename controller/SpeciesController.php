@@ -13,7 +13,7 @@ function add() {
 }
 
 function addSave() {
-	if (!addSpecies()) {
+	if (!addSpecie()) {
 		header('Location:' . URL . 'error/index');
 		exit();
 	}
@@ -21,7 +21,7 @@ function addSave() {
 }
 
 function delete($id) {
-	if (!deleteSpecies($id)) {
+	if (!deleteSpecie($id)) {
 		header('Location:' . URL . 'error/index');
 		exit();
 	}
@@ -35,7 +35,7 @@ function edit($id) {
 }
 
 function editSave() {
-	if (!editSpecies()) {
+	if (!editSpecie()) {
 		header('Location:' . URL . 'error/index');
 		exit();
 	}

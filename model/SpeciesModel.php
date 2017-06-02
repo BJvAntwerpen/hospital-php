@@ -17,7 +17,7 @@ function addSpecie() {
 	}
 
 	$db = openDatabaseConnection();
-	$sql = "INSERT INTO species(species_description) VALUES :species";
+	$sql = "INSERT INTO species(species_description) VALUES (:species)";
 	$query = $db->prepare($sql);
 	$query->execute(array(
 		':species' => $species
