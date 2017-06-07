@@ -8,7 +8,7 @@
 <body>
 	<h1>Hospital</h1>
 	<ul>
-		<li><a href="<?= URL ?>patients/index.php">Patiënts</a></li>
-		<li><a href="<?= URL ?>clients/index.php">Clients</a></li>
-		<li><a href="<?= URL ?>species/index.php">Species</a></li>
+		<li><a href="<?= URL ?>patients/index">Patiënts</a></li>
+		<li><a href="<?= URL ?>clients/index">Clients</a></li>
+		<li><a href="<?= URL ?>species/index">Species</a></li>
 	</ul>

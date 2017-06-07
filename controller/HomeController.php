@@ -7,3 +7,5 @@ function index() {
 		'patients' => getAllPatients(),
 		));
 }
+
+/* https://www.w3schools.com/sql/sql_join.asp */

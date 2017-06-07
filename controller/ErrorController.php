@@ -1,5 +1,5 @@
 <?php
 
-function error() {
+function index() {
 	echo "ERROR";
 }
