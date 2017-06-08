@@ -21,7 +21,7 @@ function addSave() {
 }
 
 function delete($id) {
-	if (!deleteSpecie($id)) {
+	if (!deleteSpecies($id)) {
 		header('Location:' . URL . 'error/index');
 		exit();
 	}

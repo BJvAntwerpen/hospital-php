@@ -22,20 +22,24 @@ function addSpecie() {
 	$query->execute(array(
 		':species' => $species
 		));
-
+	$db = null;
 	return true;
 }
 
-function deleteSpecie($id) {
+function deleteSpecies($id = null) {
 	if (!$id) {
 		return false;
 	}
+
 	$db = openDatabaseConnection();
+
 	$sql = "DELETE FROM species WHERE species_id = :id";
 	$query = $db->prepare($sql);
 	$query->execute(array(
 		':id' => $id));
+
 	$db = null;
+
 	return true;
 }
 
@@ -56,4 +60,13 @@ function editSpecie() {
 	if (strlen($specieDesc) == 0) {
 		return false;
 	}
+
+	$db = openDatabaseConnection();
+	$sql = "UPDATE species SET species_description = :specieDesc WHERE species_id = :id";
+	$query = $db->prepare($sql);
+	$query->execute(array(
+		':specieDesc' => $specieDesc,
+		':id' => $id));
+	$db = null;
+	return true;
 }

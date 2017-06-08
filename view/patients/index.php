@@ -10,30 +10,16 @@
 			</tr>
 		</thead>
 		</tbody>
+		<?php foreach ($patients as $patient) { ?>
 			<tr>
-				<td>Bobbie</td>
-				<td>hond</td>
-				<td>Koorts, eet slecht, blaft veel te veel</td>
-				<td>John Doe</td>
-				<td class="center"><a href="#">edit</a></td>
-				<td class="center"><a href="#">delete</a></td>
+				<td><?= $patient['patient_name']?></td>
+				<td><?= $patient['species_description']?></td>
+				<td><?= $patient['patient_status']?></td>
+				<td><?= $patient['client_firstname'] . ' ' . $patient['client_lastname']?></td>
+				<td class="center"><a href="<?php echo URL . 'patients/edit/' . $patient['patient_id']; ?>">edit</a></td>
+				<td class="center"><a href="<?php echo URL . 'patients/delete/' . $patient['patient_id']; ?>">delete</a></td>
 			</tr>
-			<tr>
-				<td>Minoes</td>
-				<td>kat</td>
-				<td>Drinkt niet, haaruitval, mager</td>
-				<td>Jane Doe</td>
-				<td class="center"><a href="#">edit</a></td>
-				<td class="center"><a href="#">delete</a></td>
-			</tr>
-			<tr>
-				<td>Kees</td>
-				<td>hond</td>
-				<td>Eet te veel, vetzucht, jankt en kotst</td>
-				<td>John Doe</td>
-				<td class="center"><a href="#">edit</a></td>
-				<td class="center"><a href="#">delete</a></td>
-			</tr>
+		<?php } ?>
 		</tbody>
 	</table>
-		<p><a href="#">Create</a></p>
+		<p><a href="<?= URL ?>patients/add">Add patient</a></p>
