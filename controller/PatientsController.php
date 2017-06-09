@@ -11,7 +11,8 @@ function index() {
 
 function add() {
 	render('patients/add', array(
-		'patients' => getAllPatients()
+		'species' => getAllSpecies(),
+		'clients' => getAllClients()
 		));
 }
 

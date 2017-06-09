@@ -28,7 +28,7 @@ function addClient() {
 		':email'=>$email,
 		':phone'=>$phone
 		));
-
+	$db = null;
 	return true;
 }
 
