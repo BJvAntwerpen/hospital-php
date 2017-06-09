@@ -68,10 +68,22 @@ function editPatient($id) {
 		':patient'=>$patient,
 		':species'=>$species,
 		':status'=>$status,
-		':client'=>$client
+		':client'=>$client,
+		':id' =>$id
 		));
 	$db = null;
 	return true;
 }
 
-function deletePatient($id = null) {}
+function deletePatient($id = null) {
+	if (!$id) {
+		return false;
+	}
+	$db = openDatabaseConnection();
+	$sql = "DELETE FROM patients WHERE patient_id = :id";
+	$query = $db->prepare($sql);
+	$query->execute(array(
+		':id' => $id));
+	$db = null;
+	return true;
+}

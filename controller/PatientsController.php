@@ -12,7 +12,7 @@ function index() {
 function add() {
 	render('patients/add', array(
 		'species' => getAllSpecies(),
-		'clients' => getAllClients()
+		'clients' => getAllClients(),
 		));
 }
 
@@ -34,6 +34,8 @@ function delete($id) {
 
 function edit($id) {
 	render('patients/edit', array(
+		'species' => getAllSpecies(),
+		'clients' => getAllClients(),
 		'patient' => getPatient($id)
 		));
 }
