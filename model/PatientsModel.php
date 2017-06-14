@@ -21,6 +21,7 @@ function getAllClients() {
 function addPatient() {
 	$patient = isset($_POST['Name']) ? $_POST['Name'] : null;
 	$species = isset($_POST['specie']) ? $_POST['specie'] : null;
+	$gender = isset($_POST['gender']) ? $_POST['gender'] : null;
 	$status = isset($_POST['Status']) ? $_POST['Status'] : null;
 	$client = isset($_POST['client']) ? $_POST['client'] : null;
 
@@ -28,11 +29,12 @@ function addPatient() {
 		return false;
 	}
 	$db = openDatabaseConnection();
-	$sql = "INSERT INTO patients(patient_name, species_id, client_id, patient_status) VALUES (:patient, :species, :client, :status)";
+	$sql = "INSERT INTO patients(patient_name, species_id, patient_gender, client_id, patient_status) VALUES (:patient, :species, :gender, :client, :status)";
 	$query = $db->prepare($sql);
 	$query->execute(array(
 		':patient'=>$patient,
 		':species'=>$species,
+		':gender' =>$gender,
 		':status'=>$status,
 		':client'=>$client
 		));
@@ -53,6 +55,7 @@ function getPatient($id) {
 function editPatient($id) {
 	$patient = isset($_POST['Name']) ? $_POST['Name'] : null;
 	$species = isset($_POST['specie']) ? $_POST['specie'] : null;
+	$gender = isset($_POST['gender']) ? $_POST['gender'] : null;
 	$status = isset($_POST['Status']) ? $_POST['Status'] : null;
 	$client = isset($_POST['client']) ? $_POST['client'] : null;
 	$id = isset($_POST['id']) ? $_POST['id'] : null;
@@ -62,11 +65,12 @@ function editPatient($id) {
 	}
 
 	$db = openDatabaseConnection();
-	$sql = "UPDATE patients SET patient_name = :patient, species_id = :species, client_id = :client, patient_status = :status WHERE patient_id = :id";
+	$sql = "UPDATE patients SET patient_name = :patient, species_id = :species, patient_gender = :gender ,client_id = :client, patient_status = :status WHERE patient_id = :id";
 	$query = $db->prepare($sql);
 	$query->execute(array(
 		':patient'=>$patient,
 		':species'=>$species,
+		':gender' =>$gender,
 		':status'=>$status,
 		':client'=>$client,
 		':id' =>$id

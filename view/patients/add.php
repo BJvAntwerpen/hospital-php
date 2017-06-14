@@ -7,6 +7,8 @@
 			<option value="<?= $specie['species_id'] ?>"><?= $specie['species_description'] ?></option>
 		<?php } ?>
 	</select><br>
+	<label>Gender</label><input type="radio" name="gender" value="Man"> Man
+	<input type="radio" name="gender" value="Vrouw">Vrouw<br>
 	<label>Status</label><input type="text" name="Status"><br>
 	<label>Client</label>
 	<select name="client">
