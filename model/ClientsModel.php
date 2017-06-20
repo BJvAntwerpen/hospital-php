@@ -73,7 +73,8 @@ function editClient($id) {
 		':firstname' => $firstname,
 		':lastname' => $lastname,
 		':phone' => $phone,
-		':email' => $email));
+		':email' => $email,
+		':id' => $id));
 	$db = null;
 	return true;
 }
